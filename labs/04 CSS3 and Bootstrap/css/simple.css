@@ -1,0 +1,11 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+h1, h2 {
+    color: rgb(0, 0, 255);
+    font-weight: bold;
+}
+p {
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+}

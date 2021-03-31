@@ -1,0 +1,25 @@
+
+body {
+    background-image: url("./img/American_Desert.JPG");
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #f1f2d8;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px;
+    padding: 7px;
+}
+
+a {
+    font-size: 26px;
+    color: black;
+    background-color: rgba(255,255,255,0.4);
+    margin: 20px;
+    padding: 5px;
+}
+
+#nappula {
+    font-size: 26px;
+    margin: 20px;
+}
