@@ -27,6 +27,12 @@
 		} else {
 			alert("Looks like you have an old browser!");
 		}
+
+		for (let i = 0; i < 5; i++) {
+		    let li = document.createElement("li");
+		    li.innerHTML = i;
+		    document.getElementById("ul").appendChild(li);
+        }
 	}
   </script>
 </head>

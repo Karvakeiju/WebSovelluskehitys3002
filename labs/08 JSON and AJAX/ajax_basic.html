@@ -19,6 +19,8 @@
     // var testUrl = 'https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json';
     document.getElementById("ajaxButton").onclick = function() { makeRequest(testUrl); };
 
+    document.getElementById("HakuButton").onclick = function() { makeRequest(document.getElementById("hakuText").value); };
+
     function makeRequest(url) {
       if (window.XMLHttpRequest) { // Mozilla, Safari, ...
         httpRequest = new XMLHttpRequest();
@@ -40,7 +42,7 @@
       }
 
       // set a callback function for when the httpRequest completes
-      httpRequest.onreadystatechange = alertContents;
+      httpRequest.onreadystatechange = checkStatus;
 
       // now do the actual AJAX request
       httpRequest.open('GET', url);
@@ -57,6 +59,12 @@
           alert('There was a problem with the request.');
         }
       }
+    }
+
+    function checkStatus() {
+        if (httpRequest.status === 404) {
+            alert("Site is DOWN!");
+        }
     }
   })();
   </script>
