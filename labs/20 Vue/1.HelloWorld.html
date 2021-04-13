@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue - tehtävä 1</title>
+</head>
+<body>
+
+<div id="alue1">
+    <p>{{ alue1teksti1 }}</p>
+    <input type="text" v-on:keyup="paivitaTeksti()" v-model="input1">
+
+</div>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    var alue1 = new Vue({
+        el: '#alue1',
+        data: {
+            alue1teksti1: 'Hello world!',
+            input1: ''
+        },
+        methods: {
+            paivitaTeksti: function(){
+                var teksti = this.input1;
+                this.alue1teksti1 = teksti + " - " + teksti.length + " characters";
+            }
+        }
+    })
+</script>

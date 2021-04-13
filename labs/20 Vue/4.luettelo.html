@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue - tehtävä 4</title>
+</head>
+<body>
+
+<div id="app">
+    <form v-on:submit.prevent="uusiViesti">
+        <label for="new-todo">Lisää viesti ketjuun</label>
+        <input
+                v-model="viestinTeksti"
+                id="new-todo"
+                placeholder="Viesti"
+        >
+        <button>Lisää</button>
+    </form>
+    <button type="submit" v-on:click="poistaEka">Poista viesti</button>
+        <ul>
+            <li
+                    is="viesti"
+                    v-for="(viesti, index) in viestit"
+                    v-bind:key="viesti.id"
+                    v-bind:teksti="viesti.teksti"
+                    v-on:remove="viestit.splice(index, 1)"
+            ></li>
+        </ul>
+</div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+
+    Vue.component('viesti', {
+        template: '\
+    <li>\
+      {{ teksti }}\
+      <button v-on:click="$emit(\'remove\')">Poista tämä viesti</button>\
+    </li>\
+  ',
+        props: ['teksti']
+    })
+
+    var app = new Vue({
+        el: '#app',
+
+        data: {
+            viestinTeksti: '',
+            viestit: [
+                {
+                    id: 1,
+                    teksti: 'Moi! Mitä kuuluu?',
+                },
+                {
+                    id: 2,
+                    teksti: '... tere',
+                },
+                {
+                    id: 3,
+                    teksti: 'Jaha'
+                }
+            ],
+            viestiId: 4
+        },
+
+        methods: {
+            uusiViesti: function () {
+                this.viestit.push({
+                    id: this.viestiId++,
+                    teksti: this.viestinTeksti
+                })
+                this.viestinTeksti = ''
+            },
+            poistaEka: function(){
+                this.viestit.shift();
+            }
+        }
+
+    });
+</script>

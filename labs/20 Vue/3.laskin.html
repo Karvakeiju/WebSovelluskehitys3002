@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue - tehtävä 3</title>
+</head>
+<body>
+
+<div id="app">
+    <p>{{ calculator }}</p>
+    <br>
+    <button v-on:click="minus">-</button>
+    <button v-on:click="zero">0</button>
+    <button v-on:click="plus">+</button>
+</div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    var count = 0;
+    var app = new Vue({
+       el: '#app',
+
+           data: {
+               calculator: count.toString()
+           },
+
+        methods: {
+           minus: function(){
+               count--;
+               this.calculator = count.toString();
+           },
+            zero: function(){
+                count = 0;
+                this.calculator = count.toString();
+            },
+            plus: function(){
+                count++;
+                this.calculator = count.toString();
+            }
+        }
+
+    });
+</script>
